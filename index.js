@@ -15,6 +15,10 @@ mongoose.connect(process.env.MONGO_URL)
 .then(()=>console.log("connected to database"))
 .catch((error)=>console.log(error));
 
+app.get("/", (req, res) => {
+    res.status(200).send("This is backend");
+  });
+
 app.use(cors())
 app.use(express.json());
 app.use("/api/auth", authRoute);
